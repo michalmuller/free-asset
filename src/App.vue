@@ -2,15 +2,43 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link>|
+      <a v-if="user" href="#" @click="logout">Logout</a>
     </div>
     <router-view />
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
+import firebase from "firebase";
 export default {
-  name: "App"
+  name: "App",
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.logout();
+        })
+        .then(() => {
+          this.$router.replace("home");
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    ...mapMutations("user", ["LOGOUT_USER"]),
+    logout() {
+      this.LOGOUT_USER();
+    }
+  },
+  computed: {
+    ...mapState({
+      user: state => state.user.user
+    })
+  }
 };
 </script>
 
