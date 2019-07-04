@@ -11,7 +11,6 @@
 
 <script>
 import firebase from "firebase";
-import { mapMutations } from "vuex";
 export default {
   name: "login",
   data() {
@@ -33,16 +32,12 @@ export default {
             photoUrl: res.user.photoURL,
             phoneNumber: res.user.phoneNumber
           };
-          this.authUser(user);
+          this.$store.commit("user/AUTH_USER", user);
           this.$router.replace("/");
         })
         .catch(err => {
           console.log(err);
         });
-    },
-    ...mapMutations("user", ["AUTH_USER"]),
-    authUser(user) {
-      this.AUTH_USER(user);
     }
   }
 };

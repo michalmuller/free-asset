@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapState } from "vuex";
 import firebase from "firebase";
 export default {
   name: "App",
@@ -20,18 +20,14 @@ export default {
         .auth()
         .signOut()
         .then(() => {
-          this.logout();
+          this.$store.commit("user/LOGOUT_USER");
         })
         .then(() => {
-          this.$router.replace("home");
+          this.$router.replace("/");
         })
         .catch(err => {
           console.log(err);
         });
-    },
-    ...mapMutations("user", ["LOGOUT_USER"]),
-    logout() {
-      this.LOGOUT_USER();
     }
   },
   computed: {
