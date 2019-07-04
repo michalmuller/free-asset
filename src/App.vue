@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>|
+      <router-link to="/">Home</router-link>
+      <router-link v-if="user" to="/upload">Upload</router-link>
       <a v-if="user" href="#" @click="logout">Logout</a>
     </div>
     <router-view />
@@ -49,6 +49,7 @@ export default {
 #nav {
   padding: 30px;
   a {
+    padding: 0 10px;
     font-weight: bold;
     color: #2c3e50;
     &.router-link-exact-active {
