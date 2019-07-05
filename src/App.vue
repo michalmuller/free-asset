@@ -1,35 +1,17 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link v-if="user" to="/upload">Upload</router-link>
-      <a v-if="user" href="#" @click="logout">Logout</a>
-    </div>
+  <div id="app" class="text-gray font-body antialiased leading-tight">
+    <navigation></navigation>
     <router-view />
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
-import firebase from "firebase";
+import Navigation from "@/components/Navigation";
 export default {
   name: "App",
-  methods: {
-    logout() {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          this.$store.commit("user/LOGOUT_USER");
-        })
-        .then(() => {
-          this.$router.replace("/");
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
-  },
+  components: { Navigation },
+
   computed: {
     ...mapState({
       user: state => state.user.user
@@ -42,22 +24,4 @@ export default {
 @import "../node_modules/tailwindcss/base.css";
 @import "../node_modules/tailwindcss/components.css";
 @import "../node_modules/tailwindcss/utilities.css";
-
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px 0;
-  a {
-    padding: 0 10px;
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
