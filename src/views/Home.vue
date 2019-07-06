@@ -1,21 +1,16 @@
 <template>
   <div class="home container">
     <div v-if="loading">Loading ...</div>
-    <!-- <div else class="images">
-      <img v-for="(img, index) in images" :key="index" :src="img.url" :alt="img.name" />
-    </div>-->
-    <div class="flex flex-wrap mt-4">
-      <div
-        v-for="(img, index) in images"
-        :key="index"
-        class="w-1/2 sm:w-1/4 md:w-1/4 lg:w-1/6 p-1 m-1 shadow-md bg-white h-auto"
-      >
-        <div class="img-container bg-indigo-100">
-          <div class="img-square">
-            <img class="p-2 border border-gray-200" :src="img.url" alt />
+    <div v-else class="flex flex-wrap mt-4">
+      <div v-for="(img, index) in images" :key="index" class="w-1/2 sm:w-1/4 md:w-1/4 lg:w-1/6">
+        <div class="m-2 p-1 rounded shadow-md bg-white">
+          <div class="img-container">
+            <div class="img-square">
+              <img class="p-2" :src="img.url" alt />
+            </div>
           </div>
+          <div class="img-actions p-2">...</div>
         </div>
-        <div class="img-actions p-2">...</div>
       </div>
     </div>
   </div>
@@ -32,8 +27,7 @@ export default {
   data() {
     return {
       images: [],
-      loading: true,
-      items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+      loading: true
     };
   },
   methods: {},
@@ -67,6 +61,7 @@ export default {
   position: relative;
   width: 100%;
   padding-top: 100%;
+  background-color: #fcfcfc;
   .img-square {
     position: absolute;
     top: 0;
@@ -82,6 +77,8 @@ export default {
     img {
       height: 100%;
       width: 100%;
+      border: 1px solid #dedede;
+      border-radius: 2px;
     }
   }
 }

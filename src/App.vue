@@ -24,4 +24,9 @@ export default {
 @import "../node_modules/tailwindcss/base.css";
 @import "../node_modules/tailwindcss/components.css";
 @import "../node_modules/tailwindcss/utilities.css";
+
+body {
+  background-image: url("../public/img/Group 50.png");
+  background-color: #F7F7F7;
+}
 </style>
