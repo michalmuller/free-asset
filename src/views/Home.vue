@@ -9,7 +9,15 @@
               <img class="p-2" :src="img.url" alt />
             </div>
           </div>
-          <div class="img-actions p-2">...</div>
+          <div class="img-actions pt-3 pl-1 pb-2 flex justify-between">
+            <p class="font-semibold text-xs">{{img.displayName}}</p>
+            <img
+              @click="download(img)"
+              class="pr-1 cursor-pointer"
+              src="../../public/img/icons/download.svg"
+              alt
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -30,7 +38,23 @@ export default {
       loading: true
     };
   },
-  methods: {},
+  methods: {
+    download(img) {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", img.url);
+      xhr.responseType = "blob";
+      xhr.onload = function(event) {
+        const blob = xhr.response;
+        const newUrl = window.URL.createObjectURL(blob);
+        let link = document.createElement("a");
+        link.href = newUrl;
+        link.target = "_blank";
+        link.download = `${img.displayName}.svg`;
+        link.click();
+      };
+      xhr.send();
+    }
+  },
   computed: {
     ...mapState({
       user: state => state.user.user
@@ -61,7 +85,7 @@ export default {
   position: relative;
   width: 100%;
   padding-top: 100%;
-  background-color: #fcfcfc;
+  background-color: #f6f7f8;
   .img-square {
     position: absolute;
     top: 0;
@@ -77,7 +101,7 @@ export default {
     img {
       height: 100%;
       width: 100%;
-      border: 1px solid #dedede;
+      border: 1px solid #e4e4e4;
       border-radius: 2px;
     }
   }
