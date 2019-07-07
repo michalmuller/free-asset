@@ -26,5 +26,10 @@ export default new Router({
       name: 'upload',
       component: Upload,
     },
+    {
+      path: '*',
+      name: '404',
+      component: Home,
+    },
   ],
 });

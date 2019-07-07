@@ -28,6 +28,7 @@
 import { mapState } from "vuex";
 import firebase from "firebase";
 import db from "@/firebase/firebaseInit";
+import axios from "axios";
 
 export default {
   name: "home",
@@ -40,19 +41,18 @@ export default {
   },
   methods: {
     download(img) {
-      const xhr = new XMLHttpRequest();
-      xhr.open("GET", img.url);
-      xhr.responseType = "blob";
-      xhr.onload = function(event) {
-        const blob = xhr.response;
-        const newUrl = window.URL.createObjectURL(blob);
-        let link = document.createElement("a");
-        link.href = newUrl;
-        link.target = "_blank";
-        link.download = `${img.displayName}.svg`;
+      axios({
+        url: img.url,
+        method: "GET",
+        responseType: "blob"
+      }).then(res => {
+        const url = window.URL.createObjectURL(new Blob([res.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", `${img.displayName}.svg`);
+        document.body.appendChild(link);
         link.click();
-      };
-      xhr.send();
+      });
     }
   },
   computed: {
@@ -105,7 +105,5 @@ export default {
       border-radius: 2px;
     }
   }
-}
-.img-actions {
 }
 </style>
