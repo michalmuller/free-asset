@@ -10,8 +10,8 @@ module.exports = {
       lg: '1024px',
     },
     fontFamily: {
-      display: ['Avenir', 'sans-serif'],
-      body: ['Avenir', 'Helvetica', 'Arial', 'sans-serif'],
+      display: ['Raleway', 'sans-serif'],
+      body: ['Raleway', 'sans-serif'],
     },
     extend: {
       colors: {

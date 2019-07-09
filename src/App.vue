@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="text-gray font-body antialiased leading-tight">
+  <div id="app" class="font-body text-dark-blue antialiased leading-tight">
     <navigation></navigation>
     <router-view />
   </div>
@@ -25,8 +25,11 @@ export default {
 @import "../node_modules/tailwindcss/components.css";
 @import "../node_modules/tailwindcss/utilities.css";
 
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,500,600,700&display=swap");
+
 body {
   background-image: url("../public/img/Group 50.png");
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
+  font-family: "Raleway", sans-serif;
 }
 </style>
