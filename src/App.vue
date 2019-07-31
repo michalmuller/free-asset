@@ -2,15 +2,17 @@
   <div id="app" class="font-body text-dark-blue antialiased leading-tight">
     <navigation></navigation>
     <router-view />
+    <app-footer />
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
 import Navigation from "@/components/Navigation";
+import AppFooter from "@/components/AppFooter";
 export default {
   name: "App",
-  components: { Navigation },
+  components: { Navigation, AppFooter },
 
   computed: {
     ...mapState({
@@ -29,7 +31,7 @@ export default {
 
 body {
   background-image: url("../public/img/Group 50.png");
-  background-color: #f7f7f7;
+  background-color: #fafafa;
   font-family: "Raleway", sans-serif;
 }
 </style>
