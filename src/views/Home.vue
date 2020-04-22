@@ -15,7 +15,7 @@
     <div class="container" v-if="loading">Loading ...</div>
     <div v-else class="container px-4 py-4">
       <div class="flex flex-wrap">
-        <masonry :cols="{default: 7, 1000: 3, 700: 2, 400: 1}" :gutter="8">
+        <masonry :cols="{default: 4, 1023: 3, 767: 2, 400: 1}" :gutter="8">
           <div
             class="mb-2 w-full relative bg-white img"
             v-for="(img, index) in images"

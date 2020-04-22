@@ -3,7 +3,9 @@
     <div>
       <p class="text-white text-sm">
         All content on this site is free to use and licensed under a
-        <b>Creative Commons Attribution</b>
+        <span
+          class="font-semibold"
+        >Creative Commons Attribution</span>
       </p>
       <p class="text-white text-sm mt-2">
         &copy; {{year}} copyright
@@ -12,7 +14,7 @@
           href="https://michalmuller.tech/"
           target="_blank"
         >
-          <b>Michal Muller</b>
+          <span class="font-semibold">Michal Muller</span>
         </a>
       </p>
     </div>

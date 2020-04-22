@@ -11,8 +11,8 @@ module.exports = {
       xl: '1280px'
     },
     fontFamily: {
-      display: ['Raleway', 'sans-serif'],
-      body: ['Raleway', 'sans-serif'],
+      display: ['Hind', 'sans-serif'],
+      body: ['Hind', 'sans-serif'],
     },
     extend: {
       colors: {

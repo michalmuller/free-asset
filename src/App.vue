@@ -31,14 +31,14 @@ export default {
 @import "../node_modules/tailwindcss/base.css";
 @import "../node_modules/tailwindcss/components.css";
 @import "../node_modules/tailwindcss/utilities.css";
-@import url("https://fonts.googleapis.com/css?family=Raleway:400,500,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&display=swap");
 
 html {
   margin: 0 !important;
 }
 body {
-  background-color: salmon;
-  font-family: "Raleway", sans-serif;
+  background-color: white;
+  font-family: "Hind", sans-serif;
   margin: 0 !important;
 }
 </style>

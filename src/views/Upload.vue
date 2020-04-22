@@ -63,6 +63,7 @@ export default {
           this.percentage = 0;
           storageRef.getDownloadURL().then(url => {
             console.log(url);
+            const vm = this;
             db.collection("icons")
               .add({
                 url: url,
@@ -70,11 +71,11 @@ export default {
               })
               .then(function(docRef) {
                 console.log("Document written with ID: ", docRef.id);
-                this.displayName = "";
+                vm.displayName = "";
               })
               .catch(function(error) {
                 console.error("Error adding document: ", error);
-                this.displayName = "";
+                vm.displayName = "";
               });
           });
         }

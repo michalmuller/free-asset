@@ -3,7 +3,7 @@
     <nav class="flex container px-5 items-center justify-between flex-wrap">
       <router-link to="/">
         <div class="flex items-center flex-shrink-0 mr-6">
-          <img class="mr-2" src="../../public/img/icons/fda_icon.svg" alt />
+          <img class="mr-2 h-4 mb-1" src="../../public/img/icons/fda_icon.svg" alt />
           <span class="font-bold text-xl">Free Design Asset</span>
         </div>
       </router-link>
