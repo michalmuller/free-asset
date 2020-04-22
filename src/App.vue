@@ -1,7 +1,12 @@
 <template>
-  <div id="app" class="font-body text-dark-blue antialiased leading-tight">
-    <navigation></navigation>
-    <router-view />
+  <div
+    id="app"
+    class="font-body flex flex-col text-dark-blue antialiased leading-tight relative min-h-screen"
+  >
+    <div id="site" class="flex-1">
+      <navigation></navigation>
+      <router-view />
+    </div>
     <app-footer />
   </div>
 </template>
@@ -26,12 +31,14 @@ export default {
 @import "../node_modules/tailwindcss/base.css";
 @import "../node_modules/tailwindcss/components.css";
 @import "../node_modules/tailwindcss/utilities.css";
-
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,500,600,700&display=swap");
 
+html {
+  margin: 0 !important;
+}
 body {
-  background-image: url("../public/img/Group 50.png");
-  background-color: #fafafa;
+  background-color: salmon;
   font-family: "Raleway", sans-serif;
+  margin: 0 !important;
 }
 </style>
