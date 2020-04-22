@@ -12,15 +12,11 @@
       </div>
     </div>
 
-    <div class="container" v-if="loading">Loading ...</div>
+    <div class="container px-4 py-4" v-if="loading">Loading ...</div>
     <div v-else class="container px-4 py-4">
       <div class="flex flex-wrap">
         <masonry :cols="{default: 4, 1023: 3, 767: 2, 400: 1}" :gutter="8">
-          <div
-            class="mb-2 w-full relative bg-white img"
-            v-for="(img, index) in images"
-            :key="index"
-          >
+          <div class="mb-2 w-full relative img" v-for="(img, index) in images" :key="index">
             <img class="h-auto w-full" :src="img.url" :alt="img.displayName" />
             <div class="cursor-pointer btn-download">
               <img @click="download(img)" src="../../public/img/icons/download.svg" />
